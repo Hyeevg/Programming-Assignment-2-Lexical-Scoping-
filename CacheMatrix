@@ -1,0 +1,30 @@
+## Nos piden generar dos funciones
+#Makecachematrix y cacheSolve 
+#Makecachematrix se va a generar, el punto es resolver la inversa de esta pormedio de cacheSolve
+makeCacheMatrix <- function(x = matrix()){
+ h<- NULL #se declara la variable
+ set<- function(y){
+   x<<- y
+   h<<- NULL
+ }
+ get<- function(){x}
+ setinversa<-function(hcalculada){h<<- hcalculada}
+ getinversa<- function(){h}
+ list(set=set, get=get,setinversa=setinversa,getinversa=getinversa) #se hace una lista de los elementos en la funcion 
+ 
+ 
+} 
+x$get() #llamas a la funcion para visualizar a la matriz
+
+cacheSolve <- function(X,...){
+  h <- x$getinversa()
+  if(!is.null(h)){
+    message("getting cached data")
+    return(h)
+  }
+  data<- x$get()
+  h<- solve(data, ...)
+  x$setinversa(h)
+  h
+}
+cacheSolve(x) ## llamas a la funcion para ver que todo esta en orden
