@@ -23,8 +23,8 @@ cacheSolve <- function(X,...){
     return(h)
   }
   data<- x$get()
-  h<- solve(data, ...)
-  x$setinversa(h)
+  h<- solve(data, ...) ##llama a la funcion para resolverse, por ello se llama a get
+  x$setinversa(h) ## se llama a x, la inversa que seria h va a verse reflejada en x.
   h
 }
 cacheSolve(x) ## llamas a la funcion para ver que todo esta en orden
